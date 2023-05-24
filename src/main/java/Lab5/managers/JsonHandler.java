@@ -57,11 +57,16 @@ public class JsonHandler {
     }
     public HashMap<Integer, Vehicle> toHashmap(String path){
         Type type = new TypeToken<HashMap<Integer, Vehicle>>(){}.getType();
-        HashMap<Integer, Vehicle> hashMap;
+        HashMap<Integer, Vehicle> hashMap = null;
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Vehicle.class, new ConverterVehicle());
         Gson gson = builder.create();
-        hashMap = gson.fromJson(path, type);
+        try {
+            hashMap = gson.fromJson(path, type);
+        }catch(JsonSyntaxException exception){
+            System.out.println("File is incorrect");
+            hashMap = new HashMap<Integer, Vehicle>();
+        }
         return hashMap;
     }
 }
