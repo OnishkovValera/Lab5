@@ -1,5 +1,15 @@
+average_of_engine_power
+Filter_less_than_engine_power
+help
 info
-execute_script file2
-update 13
-name
-working
+show
+remove_key 1
+remove_greater 3
+replace_if_greater 4
+remove_greater_key 5
+remove_all_by_capacity 6
+show
+save
+clear
+show
+save

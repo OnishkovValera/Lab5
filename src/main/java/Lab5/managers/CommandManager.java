@@ -6,8 +6,10 @@ import java.util.HashMap;
 
 
 public class CommandManager {
+
     public static HashMap<String, Command> commands = new HashMap<String, Command>();
-    public void initialize(){
+
+    public void initializeBase(){
         commands.put("help", new Help());
         commands.put("info", new Info());
         commands.put("show", new Show());
@@ -22,12 +24,16 @@ public class CommandManager {
         commands.put("remove_greater_key", new RemoveGreaterKey());
         commands.put("remove_all_by_capacity", new RemoveAllByCapacity());
         commands.put("filter_less_than_engine_power", new FilterLessThanEnginePower());
+        commands.put("execute_script", new ExecuteScript());
+        commands.put("exit", new Exit());
     }
+
+    public static void setCommand(HashMap<String, Command> commands) {
+        CommandManager.commands = commands;
+    }
+
     public Command getCommand(String name){
         return commands.get(name);
-    }
-    public boolean isCommandExists(String name){
-        return commands.containsKey(name);
     }
 
     public boolean isArgumentExists(String name){

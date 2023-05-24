@@ -18,7 +18,7 @@ public class JsonHandler {
         public Vehicle deserialize(@NotNull JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
             JsonObject object = jsonElement.getAsJsonObject();
 
-            Integer id = object.get("ID").getAsInt();
+            int id = object.get("ID").getAsInt();
             String name = object.get("Name").getAsString();
             float coordinateX = object.get("Coordinate_x").getAsFloat();
             double coordinateY = object.get("Coordinate_x").getAsDouble();
@@ -55,13 +55,13 @@ public class JsonHandler {
         hashson = gson.toJson(hashMap);
         return hashson;
     }
-    public HashMap<Integer, Vehicle> toHashmap(String object){
+    public HashMap<Integer, Vehicle> toHashmap(String path){
         Type type = new TypeToken<HashMap<Integer, Vehicle>>(){}.getType();
         HashMap<Integer, Vehicle> hashMap;
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Vehicle.class, new ConverterVehicle());
         Gson gson = builder.create();
-        hashMap = gson.fromJson(object, type);
+        hashMap = gson.fromJson(path, type);
         return hashMap;
     }
 }

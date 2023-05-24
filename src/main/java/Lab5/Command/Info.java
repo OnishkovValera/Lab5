@@ -1,14 +1,14 @@
 package Lab5.Command;
 
-import Lab5.InputData.Vehicle;
-import Lab5.managers.CollectionManager;
-
-import java.util.HashMap;
+import java.util.Scanner;
 
 public class Info implements Command {
 
     @Override
-    public void execute(Integer number) {
-        cmd.info();
+    public void execute(String argument, Scanner scn) {
+        System.out.println("type: "+cmd.getHashMap().getClass());
+        System.out.println("date: "+cmd.getDate());
+        System.out.println("size: "+cmd.getHashMap().size());
+        System.out.print("$");
     }
 }

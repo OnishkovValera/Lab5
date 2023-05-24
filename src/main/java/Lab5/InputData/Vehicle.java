@@ -1,8 +1,10 @@
 package Lab5.InputData;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.time.LocalDate;
 
-public class Vehicle {
+public class Vehicle implements Comparable<Vehicle>{
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -99,5 +101,10 @@ public class Vehicle {
                 "   capacity: " + capacity + "\n" +
                 "   type: " + type + "\n" +
                 "   fuelType: " + fuelType + "\n";
+    }
+
+    @Override
+    public int compareTo(Vehicle vehicle) {
+        return id - vehicle.getId();
     }
 }

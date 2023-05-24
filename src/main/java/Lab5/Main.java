@@ -13,15 +13,15 @@ public class Main {
 
         try {
             CollectionManager collectionManager = new CollectionManager();
-            collectionManager.inicialize();
             CommandManager commandManager = new CommandManager();
-            commandManager.initialize();
-            MessageHandler messageHandler = new MessageHandler();
+            MessageHandler messageHandler = new MessageHandler(new Scanner(System.in));
+            collectionManager.inicialize();
+            commandManager.initializeBase();
             messageHandler.processMessage();
-        } catch (NoSuchElementException exception) {
-            System.out.println("Stream is closed, interrupting application");
-        } catch (NullPointerException exception){
+
+        } catch (NoSuchElementException exception){
             System.out.println("This is empty file");
+            System.out.print("$");
         }
     }
 }
