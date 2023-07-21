@@ -13,3 +13,11 @@ save
 clear
 show
 save
+info
+info
+remove_key 1
+remove_greater 3
+clear
+show 
+save
+exit
